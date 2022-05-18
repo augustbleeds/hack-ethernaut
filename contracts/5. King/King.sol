@@ -14,6 +14,7 @@ contract King {
     }
 
     receive() external payable {
+        // why do we still send if the owner sent this msg
         require(msg.value >= prize || msg.sender == owner);
         king.transfer(msg.value);
         king = payable(msg.sender);

@@ -24,6 +24,7 @@ describe("Attacking King", function () {
   it("Succesfully become and remain the king forever", async () => {
     await attacker.hackContract({ gasLimit: 30000000 });
     try {
+      // the equivalent of "call" in solidity i think
       await kingPlayer.sendTransaction({
         value: ethers.utils.parseEther("100"),
         to: victim.address,

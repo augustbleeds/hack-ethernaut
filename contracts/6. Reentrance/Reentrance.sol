@@ -21,6 +21,9 @@ contract Reentrance {
             if (result) {
                 balances[msg.sender];
             }
+            // you can't stop the attack by simply reverting the transaction bc the 
+            // attacker can be smart about not overwithdrawing funds
+            // require(result, "attack thwarted");
             balances[msg.sender] = 0;
         }
     }
